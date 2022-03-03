@@ -7,11 +7,11 @@ class Player {
   }
   takeTurn(difficulty) {
     if (!this.isHuman) {
-      return difficulty[getRandomIndex(difficulty)];
+      this.choice = difficulty[getRandomIndex(difficulty)];
     }
     else {
       //ultimately return whatever the human clicks on, need to access Dom. for now, scissors
-      return "Scissors";
+      this.choice = "Scissors";
     }
   }
 }
@@ -36,30 +36,50 @@ class Game {
     //CLASSIC
   playClassicGame(){
     //computer has randomized of the 3 options
-    this.computer.takeTurn(this.difficulty);
+    this.computer.takeTurn(this.classic);
     //human picks one by clicking it
     this.player.takeTurn();
     // compare the two options
       //if it's a tie
     if (this.player.choice === this.computer.choice) {
-      return `this is a tie`
+      console.log(`this is a tie`)
     }
-      //if there's a winner
-    else if (this.player.choice === "rock" && this.computer.choice === "scissors") {
-      winGame(this.player);
+    //   //if there's a winner
+    else if (this.player.choice === "Rock" && this.computer.choice === "Scissors") {
+      console.log('winner is player');
+      this.winGame("player");
     }
-    else if (this.player.choice === "paper" && this.computer.choice === "rock") {
-      winGame(this.player);
+    else if (this.player.choice === "Paper" && this.computer.choice === "Rock") {
+      console.log('winner is player');
+      this.winGame("player");
     }
-    else if (this.player.choice === "scissors" && this.computer.choice === "paper") {
-      winGame(this.player);
+    else if (this.player.choice === "Scissors" && this.computer.choice === "Paper") {
+      console.log('winner is player');
+      this.winGame("player");
+    } else {
+      this.winGame("computer");
+      console.log("winner is computer")
     }
-    else {
-      winGame(this.computer);
-    }
+    console.log(this.player.choice);
+    console.log(this.computer.choice);
   }
 }
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+
+
+var game1 = new Game("classic");
+
+
+game1.playClassicGame()
+game1.playClassicGame()
+game1.playClassicGame()
+game1.playClassicGame()
+game1.playClassicGame()
+
+
+console.log(game1);
+
+// console.log(game1.player.name)
