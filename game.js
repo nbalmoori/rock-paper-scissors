@@ -11,7 +11,7 @@ class Player {
     }
     else {
       //ultimately return whatever the human clicks on, need to access Dom. for now, scissors
-      this.choice = "Scissors";
+      this.choice = "Rock";
     }
   }
 }
@@ -35,16 +35,11 @@ class Game {
   //a way to check the Game's board data for win conditions
     //CLASSIC
   playClassicGame(){
-    //computer has randomized of the 3 options
     this.computer.takeTurn(this.classic);
-    //human picks one by clicking it
     this.player.takeTurn();
-    // compare the two options
-      //if it's a tie
     if (this.player.choice === this.computer.choice) {
       console.log(`this is a tie`)
     }
-    //   //if there's a winner
     else if (this.player.choice === "Rock" && this.computer.choice === "Scissors") {
       console.log('winner is player');
       this.winGame("player");
@@ -63,7 +58,65 @@ class Game {
     console.log(this.player.choice);
     console.log(this.computer.choice);
   }
-}
+
+  playDifficultGame(){
+    //computer has randomized of the 3 options
+    this.computer.takeTurn(this.difficult);
+    //human picks one by clicking it
+    this.player.takeTurn();
+    // compare the two options
+      //if it's a tie
+    if (this.player.choice === this.computer.choice) {
+      console.log(`this is a tie`)
+    }
+    //   //if there's a winner
+    else if (this.player.choice === "Rock" && this.computer.choice === "Scissors") {
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Rock" && this.computer.choice === "Lizard") {
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Paper" && this.computer.choice === "Rock") {
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Paper" && this.computer.choice === "Alien") {
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Scissors" && this.computer.choice === "Paper") {
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Scissors" && this.computer.choice === "Lizard") {
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Lizard" && this.computer.choice === "Paper"){
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Lizard" && this.computer.choice === "Alien"){
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Alien" && this.computer.choice === "Scissors") {
+      console.log('winner is player');
+      this.winGame("player");
+    }
+    else if (this.player.choice === "Alien" && this.computer.choice === "Rock") {
+      console.log('winner is player');
+      this.winGame("player");
+    } else {
+      this.winGame("computer");
+      console.log("winner is computer")
+    }
+    console.log(this.player.choice);
+    console.log(this.computer.choice);
+  }
+};
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -73,11 +126,12 @@ function getRandomIndex(array) {
 var game1 = new Game("classic");
 
 
-game1.playClassicGame()
-game1.playClassicGame()
-game1.playClassicGame()
-game1.playClassicGame()
-game1.playClassicGame()
+game1.playDifficultGame()
+game1.playDifficultGame()
+game1.playDifficultGame()
+game1.playDifficultGame()
+game1.playDifficultGame()
+
 
 
 console.log(game1);
