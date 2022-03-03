@@ -1,8 +1,7 @@
 class Game {
-  constructor(difficulty) {
+  constructor() {
     this.player = new Player("Human", true);
     this.computer = new Player("Computer", false);
-    this.chosenDifficulty = difficulty;
     this.classic = ["Rock", "Paper", "Scissors"];
     this.difficult = ["Rock", "Paper", "Scissors", "Lizard", "Alien"];
   }
@@ -88,8 +87,4 @@ class Game {
     console.log(this.player.choice);
     console.log(this.computer.choice);
   }
-};
-
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
 };

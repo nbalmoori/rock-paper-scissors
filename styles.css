@@ -10,7 +10,8 @@ body {
 }
 
 h1 {
-  font-size: 80px;
+  padding-top: 30px;
+  font-size: 70px;
 }
 
 h3 {
@@ -36,14 +37,27 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   background-color: #9EB9C3;
 }
 
-.classic,
-.difficult {
-  width: 15%;
+.home-view {
+  width: 80%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.classic-option,
+.difficult-option {
+  width: 200px;
   background-color: #337188;
   padding: 20px;
   text-align: center;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
