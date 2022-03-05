@@ -15,6 +15,9 @@ var game = new Game();
 classicOption.addEventListener("click", showClassicGame);
 difficultOption.addEventListener("click", showDifficultGame);
 
+gameView.addEventListener("click", function(event) {
+  playerSelectIcon(event)
+});
 
 // FUNCTIONS
 
@@ -31,7 +34,7 @@ function showDifficultGame() {
   game.selection = "difficult"
   hideHomeView()
   displayGameIcons(game.difficult)
-  console.log("difficult game");
+  console.log(game);
 };
 
 function hideHomeView() {
@@ -42,6 +45,10 @@ function hideHomeView() {
 
 function displayGameIcons(array) {
   for (var i = 0; i < array.length; i++) {
-    gameView.innerHTML += `<img src="./assets/` + game.difficult[i] + `.png">`;
+    gameView.innerHTML += `<img src="./assets/` + array[i] + `.png" ` + `id ="` + array[i] + `">`;
   }
 };
+
+function playerSelectIcon(event) {
+  console.log(event.target.getAttribute('id'));
+}
