@@ -2,19 +2,22 @@
   padding: 0;
   margin: 0;
   font-family: "Marker Felt", fantasy;
+  /* border: solid blue 2px; */
 }
 
 body {
   display: flex;
-  height: 722px;
+  height: 737px;
 }
 
 h1 {
-  font-size: 80px;
+  padding-top: 30px;
+  font-size: 70px;
 }
 
-h3 {
-  padding-bottom: 5px;
+h2 {
+  padding: 50px;
+  font-size: 40px;
 }
 
 p {
@@ -36,14 +39,46 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   background-color: #9EB9C3;
 }
 
-.classic,
-.difficult {
-  width: 15%;
+.home-view {
+  width: 80%;
+  height: 722px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.game-view{
+  padding-top: 50px;
+  width: 500px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+.classic-option,
+.difficult-option {
+  width: 200px;
+  height: 150px;
   background-color: #337188;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  width: 130px;
+  height: 130px;
 }
