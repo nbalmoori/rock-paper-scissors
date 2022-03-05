@@ -16,7 +16,7 @@ h1 {
 }
 
 h2 {
-  padding: 80px;
+  padding: 50px;
   font-size: 40px;
 }
 
@@ -42,13 +42,19 @@ aside {
   background-color: #9EB9C3;
 }
 
-.game-view,
 .home-view {
   width: 80%;
   height: 722px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
+
+.game-view{
+  padding-top: 100px;
+}
+
 
 .classic-option,
 .difficult-option {
