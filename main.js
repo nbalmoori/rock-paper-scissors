@@ -11,27 +11,37 @@ var game = new Game();
 
 // EVENT LISTENERS
 
+//could refactor this into one formula?
 classicOption.addEventListener("click", showClassicGame);
 difficultOption.addEventListener("click", showDifficultGame);
 
 
 // FUNCTIONS
 
-function hideHomeView() {
-  homeView.classList.add("hidden");
-  gameView.classList.remove("hidden");
-  header.innerHTML = "Choose your fighter!"
-}
 
+//could refactor showClassicGame and showDifficultGame into one formula?
 function showClassicGame() {
+  game.selection = "classic"
   hideHomeView()
-  //display icons
-  //
+  displayGameIcons(game.classic)
   console.log(game);
 };
 
 function showDifficultGame() {
   game.selection = "difficult"
   hideHomeView()
+  displayGameIcons(game.difficult)
   console.log("difficult game");
+};
+
+function hideHomeView() {
+  homeView.classList.add("hidden");
+  gameView.classList.remove("hidden");
+  header.innerHTML = "Choose your fighter!"
+};
+
+function displayGameIcons(array) {
+  for (var i = 0; i < array.length; i++) {
+    gameView.innerHTML += `<img src="./assets/` + game.difficult[i] + `.png">`;
+  }
 };
