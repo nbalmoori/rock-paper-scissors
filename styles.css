@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   font-family: "Marker Felt", fantasy;
+  /* border: solid blue 2px; */
 }
 
 body {
@@ -15,11 +16,8 @@ h1 {
 }
 
 h2 {
-  padding-top: 30px;
-}
-
-h3 {
-  padding-bottom: 5px;
+  padding: 80px;
+  font-size: 40px;
 }
 
 p {
@@ -49,20 +47,27 @@ aside {
   width: 80%;
   height: 722px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .classic-option,
 .difficult-option {
   width: 200px;
+  height: 150px;
   background-color: #337188;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   cursor: pointer;
 }
 
 .hidden {
   display: none;
+}
+
+img {
+  width: 100px;
+  height: 100px;
 }

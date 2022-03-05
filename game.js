@@ -4,6 +4,7 @@ class Game {
     this.computer = new Player("Computer", false);
     this.classic = ["Rock", "Paper", "Scissors"];
     this.difficult = ["Rock", "Paper", "Scissors", "Lizard", "Alien"];
+    this.selection
   }
 
   winGame(winner){
@@ -11,6 +12,7 @@ class Game {
   }
 
   playClassicGame(){
+    this.selection = "classic";
     this.computer.takeTurn(this.classic);
     this.player.takeTurn();
     if (this.player.choice === this.computer.choice) {
@@ -36,6 +38,7 @@ class Game {
   }
 
   playDifficultGame(){
+    this.selection = "difficult";
     this.computer.takeTurn(this.difficult);
     this.player.takeTurn();
     if (this.player.choice === this.computer.choice) {
