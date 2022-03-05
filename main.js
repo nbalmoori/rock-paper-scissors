@@ -26,15 +26,13 @@ gameView.addEventListener("click", function(event) {
 function showClassicGame() {
   game.selection = "classic"
   hideHomeView()
-  displayGameIcons(game.classic)
-  console.log(game);
+  displayGameIcons(game.icons.classic)
 };
 
 function showDifficultGame() {
   game.selection = "difficult"
   hideHomeView()
-  displayGameIcons(game.difficult)
-  console.log(game);
+  displayGameIcons(game.icons.difficult)
 };
 
 function hideHomeView() {
@@ -50,5 +48,12 @@ function displayGameIcons(array) {
 };
 
 function playerSelectIcon(event) {
-  console.log(event.target.getAttribute('id'));
+  game.player.choice = (event.target.getAttribute('id'));
+  if (game.selection === "classic") {
+    header.innerHTML = (game.playClassicGame())
+  }
+  if (game.selection === "difficult") {
+    header.innerHTML = (game.playDifficultGame())
+  }
+  console.log(game);
 }
