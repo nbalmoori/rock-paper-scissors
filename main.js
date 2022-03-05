@@ -4,6 +4,7 @@
 var classicOption = document.querySelector(".classic-option");
 var difficultOption = document.querySelector(".difficult-option");
 var homeView = document.querySelector(".home-view");
+var gameView = document.querySelector(".game-view");
 // var game = new Game();
 
 // EVENT LISTENERS
@@ -16,6 +17,7 @@ difficultOption.addEventListener("click", showDifficultGame);
 
 function hideHomeView() {
   homeView.classList.add("hidden");
+  gameView.classList.remove("hidden");
 }
 
 function showClassicGame() {

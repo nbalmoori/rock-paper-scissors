@@ -6,12 +6,16 @@
 
 body {
   display: flex;
-  height: 722px;
+  height: 737px;
 }
 
 h1 {
   padding-top: 30px;
   font-size: 70px;
+}
+
+h2 {
+  padding-top: 30px;
 }
 
 h3 {
@@ -40,9 +44,10 @@ aside {
   background-color: #9EB9C3;
 }
 
+.game-view,
 .home-view {
   width: 80%;
-  height: 600px;
+  height: 722px;
   display: flex;
   flex-direction: column;
   align-items: center;
