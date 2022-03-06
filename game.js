@@ -12,37 +12,8 @@ class Game {
     this[winner].wins += 1;
   }
 
-  playClassicGame(){
-    this.computer.takeTurn(this.icons.classic);
-    if (this.player.choice === this.computer.choice) {
-      console.log("this is a tie")
-      return `It's a Draw!`
-    }
-    else if (this.player.choice === "rock" && this.computer.choice === "scissors") {
-      this.winGame("player");
-      console.log("winner is player")
-      return "Player won this round!";
-    }
-    else if (this.player.choice === "paper" && this.computer.choice === "rock") {
-      this.winGame("player");
-      console.log("winner is player")
-      return "Player won this round!";
-    }
-    else if (this.player.choice === "scissors" && this.computer.choice === "paper") {
-      this.winGame("player");
-      console.log("winner is player")
-      return "Player won this round!";
-    } else {
-      this.winGame("computer");
-      console.log("winner is computer")
-        return "Computer won this round!";
-    }
-    console.log(this.player.choice);
-    console.log(this.computer.choice);
-  }
-
-  playDifficultGame(){
-    this.computer.takeTurn(this.icons.difficult);
+  playGame(difficulty){
+    this.computer.takeTurn(this.icons[difficulty]);
     if (this.player.choice === this.computer.choice) {
       console.log(`this is a tie`)
       return "It's a Draw!";

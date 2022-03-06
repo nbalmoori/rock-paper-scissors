@@ -53,10 +53,10 @@ function displayGameIcons(array) {
 function playerSelectIcon(event) {
   game.player.choice = (event.target.getAttribute('id'));
   if (game.selection === "classic") {
-    header.innerHTML = (game.playClassicGame())
+    header.innerHTML = (game.playGame("classic"))
   }
   if (game.selection === "difficult") {
-    header.innerHTML = (game.playDifficultGame())
+    header.innerHTML = (game.playGame("difficult"))
   }
   displayWinCount();
   displayGameResults();
