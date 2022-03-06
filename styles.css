@@ -81,5 +81,8 @@ aside {
 img {
   width: 130px;
   height: 130px;
+}
+
+.game-icons {
   cursor: pointer;
 }

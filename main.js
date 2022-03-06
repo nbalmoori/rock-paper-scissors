@@ -11,6 +11,10 @@ var computerWinCount = document.querySelector(".computer-win-count");
 
 var game = new Game();
 
+var logMe = function() {
+  console.log("I will run after 2 seconds");
+}
+
 // EVENT LISTENERS
 
 //could refactor this into one formula?
@@ -20,6 +24,7 @@ difficultOption.addEventListener("click", showDifficultGame);
 gameView.addEventListener("click", function(event) {
   playerSelectIcon(event)
 });
+
 
 // FUNCTIONS
 
@@ -44,24 +49,27 @@ function hideHomeView() {
 };
 
 function displayGameIcons(array) {
+  gameView.innerHTML = "";
   for (var i = 0; i < array.length; i++) {
-    gameView.innerHTML += `<img src="./assets/` + array[i] + `.png" ` + `id ="` + array[i] + `">`;
+    gameView.innerHTML += `<img src="./assets/` + array[i] + `.png" class="game-icons"` + `id ="` + array[i] + `">`;
   }
 };
 
 
 function playerSelectIcon(event) {
-  game.player.choice = (event.target.getAttribute('id'));
-  if (game.selection === "classic") {
-    header.innerHTML = (game.playGame("classic"))
+  var replay = function() {
+    header.innerHTML = "Choose your fighter!"
+    displayGameIcons(game.icons[game.selection])
   }
-  if (game.selection === "difficult") {
-    header.innerHTML = (game.playGame("difficult"))
+  if (event.target.getAttribute('class') === "game-icons") {
+    game.player.choice = (event.target.getAttribute('id'));
+    header.innerHTML = (game.playGame(game.selection))
+    displayWinCount();
+    displayGameResults();
+    console.log(game);
+    setTimeout(replay, 2000);
   }
-  displayWinCount();
-  displayGameResults();
-  console.log(game);
-}
+};
 
 function displayWinCount() {
   playerWinCount.innerHTML = game.player.wins;
@@ -70,6 +78,11 @@ function displayWinCount() {
 
 function displayGameResults() {
   gameView.innerHTML = `
-    <img src="./assets/` + game.player.choice + `.png">
-    <img src="./assets/` + game.computer.choice + `.png">`
+    <img src="./assets/` + game.player.choice + `.png" class="game-result">
+    <img src="./assets/` + game.computer.choice + `.png" class="game-result">`;
+};
+
+function replayGame() {
+  header.innerHTML = "Choose your fighter!"
+  // displayGameIcons(array)
 }
