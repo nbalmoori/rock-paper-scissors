@@ -6,6 +6,8 @@ var difficultOption = document.querySelector(".difficult-option");
 var homeView = document.querySelector(".home-view");
 var gameView = document.querySelector(".game-view");
 var header = document.querySelector("h2");
+var playerWinCount = document.querySelector(".player-win-count");
+var computerWinCount = document.querySelector(".computer-win-count");
 
 var game = new Game();
 
@@ -47,6 +49,7 @@ function displayGameIcons(array) {
   }
 };
 
+
 function playerSelectIcon(event) {
   game.player.choice = (event.target.getAttribute('id'));
   if (game.selection === "classic") {
@@ -55,5 +58,11 @@ function playerSelectIcon(event) {
   if (game.selection === "difficult") {
     header.innerHTML = (game.playDifficultGame())
   }
+  displayWins();
   console.log(game);
+}
+
+function displayWins() {
+  playerWinCount.innerHTML = game.player.wins;
+  computerWinCount.innerHTML = game.computer.wins;
 }
