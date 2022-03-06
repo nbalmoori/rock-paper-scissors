@@ -58,11 +58,18 @@ function playerSelectIcon(event) {
   if (game.selection === "difficult") {
     header.innerHTML = (game.playDifficultGame())
   }
-  displayWins();
+  displayWinCount();
+  displayGameResults();
   console.log(game);
 }
 
-function displayWins() {
+function displayWinCount() {
   playerWinCount.innerHTML = game.player.wins;
   computerWinCount.innerHTML = game.computer.wins;
+};
+
+function displayGameResults() {
+  gameView.innerHTML = `
+    <img src="./assets/` + game.player.choice + `.png">
+    <img src="./assets/` + game.computer.choice + `.png">`
 }
