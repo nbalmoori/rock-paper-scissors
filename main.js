@@ -5,6 +5,7 @@ var classicOption = document.querySelector(".classic-option");
 var difficultOption = document.querySelector(".difficult-option");
 var homeView = document.querySelector(".home-view");
 var gameView = document.querySelector(".game-view");
+var title = document.querySelector("h1");
 var header = document.querySelector("h2");
 var playerWinCount = document.querySelector(".player-win-count");
 var computerWinCount = document.querySelector(".computer-win-count");
@@ -22,6 +23,7 @@ var logMe = function() {
 classicOption.addEventListener("click", showClassicGame);
 difficultOption.addEventListener("click", showDifficultGame);
 newGameButton.addEventListener("click", showHomeView)
+title.addEventListener("click", resetGame)
 gameView.addEventListener("click", function(event) {
   playerSelectIcon(event)
 });
@@ -65,7 +67,7 @@ function playerSelectIcon(event) {
     header.innerHTML = (game.playGame(game.selection))
     displayWinCount();
     displayGameResults();
-    console.log(game);
+    // console.log(game);
     setTimeout(replay, 2000);
   }
 };
@@ -84,5 +86,12 @@ function displayGameResults() {
 function showHomeView() {
   homeView.classList.remove("hidden")
   gameView.classList.add("hidden")
+  header.innerHTML = "Choose your game!"
   newGameButton.classList.add("hidden")
+};
+
+function resetGame() {
+  game = new Game();
+  showHomeView();
+  displayWinCount();
 };
