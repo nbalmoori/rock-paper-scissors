@@ -75,7 +75,7 @@ aside {
   border: solid black 2px;
   cursor: pointer;
   height: 150px;
-  padding: 20px;
+  padding: 30px;
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -98,6 +98,13 @@ button {
   cursor: pointer;
   margin-top: 100px;
   padding: 10px;
+}
+
+button:hover,
+.classic-option:hover,
+.difficult-option:hover,
+.game-icons:hover {
+  background-color: #A0A7AD;
 }
 
 .hidden {
