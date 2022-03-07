@@ -20,46 +20,46 @@ class Game {
     }
     else if (this.player.choice === "rock" && this.computer.choice === "scissors") {
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "rock" && this.computer.choice === "lizard") {
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "paper" && this.computer.choice === "rock") {
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "paper" && this.computer.choice === "alien") {
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "scissors" && this.computer.choice === "paper") {
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "scissors" && this.computer.choice === "lizard") {
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "lizard" && this.computer.choice === "paper"){
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "lizard" && this.computer.choice === "alien"){
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "alien" && this.computer.choice === "scissors") {
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     }
     else if (this.player.choice === "alien" && this.computer.choice === "rock") {
       this.winGame("player");
-      return "Player won this round!";
+      return `${this.player.token} Human won this round!`;
     } else {
       this.winGame("computer");
-      return "Computer won this round!";
+      return `Computer won this round! ${this.computer.token}`;
     }
   }
 };

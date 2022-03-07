@@ -2,8 +2,12 @@ class Player {
   constructor(name, isHuman) {
     this.name = name
     this.isHuman = isHuman
-    this.token
     this.wins = 0;
+    if (isHuman) {
+      this.token = "🧑"
+    } else {
+      this.token = "💻"
+    }
   }
 
   takeTurn(difficulty) {
