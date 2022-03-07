@@ -2,16 +2,21 @@ class Player {
   constructor(name, isHuman) {
     this.name = name
     this.isHuman = isHuman
-    this.token
     this.wins = 0;
+    if (isHuman) {
+      this.token = "🧑"
+    } else {
+      this.token = "💻"
+    }
   }
 
-  takeTurn(difficulty) {
+//Does this make sense to have two parameters? Could I just pass through one?
+  takeTurn(difficulty, choice) {
     if (!this.isHuman) {
       this.choice = difficulty[getRandomIndex(difficulty)];
     }
     else {
-      this.choice = "Scissors";
+      this.choice = choice;
     }
   }
 };

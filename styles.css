@@ -1,84 +1,105 @@
+/* I should have comments to organize these, but I'm not sure what makes most sense.  */
+/* Based on the rubric, I should have more examples of using a styling rule block to multiple elements */
+
+
 * {
-  padding: 0;
-  margin: 0;
   font-family: "Marker Felt", fantasy;
-  /* border: solid blue 2px; */
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  display: flex;
   height: 737px;
+  display: flex;
 }
 
 h1 {
-  padding-top: 30px;
+  cursor: pointer;
   font-size: 70px;
+  padding-top: 30px;
 }
 
 h2 {
-  padding: 50px;
   font-size: 40px;
+  padding: 50px;
+}
+
+h3 {
+  padding-bottom: 15px;
+  font-size: 25px;
 }
 
 p {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 aside {
+  background-color: #518BA1;
+  padding-top: 100px;
+  width: 15%;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  padding-top: 100px;
-  background-color: #518BA1;
-  width: 15%;
 }
 
 .game-area {
+  background-color: #9EB9C3;
   width: 80%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  background-color: #9EB9C3;
+  flex-direction: column;
 }
 
 .home-view {
-  width: 80%;
   height: 722px;
+  width: 80%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: space-evenly;
 }
 
 .game-view{
   padding-top: 50px;
   width: 500px;
-  align-items: center;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-
 .classic-option,
 .difficult-option {
-  width: 200px;
-  height: 150px;
   background-color: #337188;
+  border: solid black 2px;
+  cursor: pointer;
+  height: 150px;
   padding: 20px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+img {
+  height: 130px;
+  width: 130px;
+}
+
+.game-icons {
   cursor: pointer;
+}
+
+button {
+  background-color: #337188;
+  border: solid black 2px;
+  cursor: pointer;
+  margin-top: 100px;
+  padding: 10px;
 }
 
 .hidden {
   display: none;
-}
-
-img {
-  width: 130px;
-  height: 130px;
 }
