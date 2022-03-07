@@ -19,11 +19,11 @@ var newGameButton = document.querySelector("button");
 //   showGame(event);
 // })
 
-classicOption.addEventListener("click", showClassicGame);
-difficultOption.addEventListener("click", showDifficultGame);
-newGameButton.addEventListener("click", showHomeView);
-title.addEventListener("click", resetGame);
-gameView.addEventListener("click", function(event) {
+classicOption.addEventListener('click', showClassicGame);
+difficultOption.addEventListener('click', showDifficultGame);
+newGameButton.addEventListener('click', showHomeView);
+title.addEventListener('click', resetGame);
+gameView.addEventListener('click', function(event) {
   playerSelectIcon(event)
 });
 
@@ -46,13 +46,13 @@ gameView.addEventListener("click", function(event) {
 // }
 
 function showClassicGame() {
-  game.selection = "classic";
+  game.selection = 'classic';
   hideHomeView();
   displayGameIcons(game.icons.classic);
 };
 
 function showDifficultGame() {
-  game.selection = "difficult";
+  game.selection = 'difficult';
   hideHomeView();
   displayGameIcons(game.icons.difficult);
 };
@@ -60,18 +60,18 @@ function showDifficultGame() {
 function hideHomeView() {
   homeView.classList.add("hidden");
   gameView.classList.remove("hidden");
-  header.innerHTML = "Choose your fighter!";
+  header.innerHTML = 'Choose your fighter!';
 };
 
 function showHomeView() {
   homeView.classList.remove("hidden");
   gameView.classList.add("hidden");
-  header.innerHTML = "Choose your game!";
+  header.innerHTML = 'Choose your game!';
   newGameButton.classList.add("hidden");
 };
 
 function displayGameIcons(array) {
-  gameView.innerHTML = "";
+  gameView.innerHTML = '';
   for (var i = 0; i < array.length; i++) {
     gameView.innerHTML += `<img src="./assets/` + array[i] + `.png" class="game-icons"` + `id ="` + array[i] + `">`;
   };
@@ -79,10 +79,11 @@ function displayGameIcons(array) {
 
 function playerSelectIcon(event) {
   var replay = function() {
-    header.innerHTML = "Choose your fighter!";
+    header.innerHTML = 'Choose your fighter!';
     newGameButton.classList.remove("hidden");
     displayGameIcons(game.icons[game.selection]);
   };
+
   if (event.target.getAttribute('class') === "game-icons") {
     game.player.takeTurn(game.icons[game.selection], event.target.getAttribute('id'));
     game.computer.takeTurn(game.icons[game.selection]);
