@@ -2,16 +2,16 @@ class Game {
   constructor() {
     this.player = new Player("Human", true);
     this.computer = new Player("Computer", false);
-    this.selection
     this.icons = {
       classic: ["rock", "paper", "scissors"],
-      difficult: ["rock", "paper", "scissors", "lizard", "alien"],
+      difficult: ["rock", "paper", "scissors", "lizard", "alien"]
     };
+    this.selection;
   };
 
   winGame(winner){
     this[winner].wins += 1;
-    return(`${this[winner].token} ${this[winner].name} won this round! ${this[winner].token}`)
+    return `${this[winner].token} ${this[winner].name} won this round! ${this[winner].token}`
   };
 
   determineWinner(){
