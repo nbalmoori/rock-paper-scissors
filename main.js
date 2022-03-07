@@ -1,6 +1,6 @@
-
 // VARIABLES
 
+var game = new Game();
 var classicOption = document.querySelector(".classic-option");
 var difficultOption = document.querySelector(".difficult-option");
 var homeView = document.querySelector(".home-view");
@@ -9,67 +9,88 @@ var title = document.querySelector("h1");
 var header = document.querySelector("h2");
 var playerWinCount = document.querySelector(".player-win-count");
 var computerWinCount = document.querySelector(".computer-win-count");
-var newGameButton = document.querySelector("button")
-
-var game = new Game();
-
-var logMe = function() {
-  console.log("I will run after 2 seconds");
-}
+var newGameButton = document.querySelector("button");
 
 // EVENT LISTENERS
 
-//could refactor the first two into one formula?
+//Could I refactor the first two into one event listener?
+
+// homeView.addEventListener("click", function(event) {
+//   showGame(event);
+// })
+
 classicOption.addEventListener("click", showClassicGame);
 difficultOption.addEventListener("click", showDifficultGame);
-newGameButton.addEventListener("click", showHomeView)
-title.addEventListener("click", resetGame)
+newGameButton.addEventListener("click", showHomeView);
+title.addEventListener("click", resetGame);
 gameView.addEventListener("click", function(event) {
   playerSelectIcon(event)
 });
 
 // FUNCTIONS
 
-//could refactor showClassicGame and showDifficultGame into one formula?
+//Could I refactor showClassicGame and showDifficultGame into one function?
+//Below doesn't work if you click in the middle of the box
+
+// function showGame() {
+//   if (event.target.getAttribute('class') === "classic-option") {
+//     game.selection = "classic";
+//     hideHomeView();
+//     displayGameIcons(game.icons.classic);
+//   }
+//   if (event.target.getAttribute('class') === "difficult-option") {
+//     game.selection = "difficult";
+//     hideHomeView();
+//     displayGameIcons(game.icons.difficult);
+//   }
+// }
+
 function showClassicGame() {
-  game.selection = "classic"
-  hideHomeView()
-  displayGameIcons(game.icons.classic)
+  game.selection = "classic";
+  hideHomeView();
+  displayGameIcons(game.icons.classic);
 };
 
 function showDifficultGame() {
-  game.selection = "difficult"
-  hideHomeView()
-  displayGameIcons(game.icons.difficult)
+  game.selection = "difficult";
+  hideHomeView();
+  displayGameIcons(game.icons.difficult);
 };
 
 function hideHomeView() {
   homeView.classList.add("hidden");
   gameView.classList.remove("hidden");
-  header.innerHTML = "Choose your fighter!"
+  header.innerHTML = "Choose your fighter!";
+};
+
+function showHomeView() {
+  homeView.classList.remove("hidden");
+  gameView.classList.add("hidden");
+  header.innerHTML = "Choose your game!";
+  newGameButton.classList.add("hidden");
 };
 
 function displayGameIcons(array) {
   gameView.innerHTML = "";
   for (var i = 0; i < array.length; i++) {
     gameView.innerHTML += `<img src="./assets/` + array[i] + `.png" class="game-icons"` + `id ="` + array[i] + `">`;
-  }
+  };
 };
 
 function playerSelectIcon(event) {
   var replay = function() {
-    header.innerHTML = "Choose your fighter!"
-    newGameButton.classList.remove("hidden")
-    displayGameIcons(game.icons[game.selection])
-  }
+    header.innerHTML = "Choose your fighter!";
+    newGameButton.classList.remove("hidden");
+    displayGameIcons(game.icons[game.selection]);
+  };
   if (event.target.getAttribute('class') === "game-icons") {
-    game.player.choice = (event.target.getAttribute('id'));
-    header.innerHTML = (game.playGame(game.selection))
+    game.player.takeTurn(game.icons[game.selection], event.target.getAttribute('id'));
+    game.computer.takeTurn(game.icons[game.selection]);
+    header.innerHTML = (game.determineWinner());
     displayWinCount();
     displayGameResults();
-    // console.log(game);
     setTimeout(replay, 2000);
-  }
+  };
 };
 
 function displayWinCount() {
@@ -79,15 +100,8 @@ function displayWinCount() {
 
 function displayGameResults() {
   gameView.innerHTML = `
-    <img src="./assets/` + game.player.choice + `.png" class="game-result">
-    <img src="./assets/` + game.computer.choice + `.png" class="game-result">`;
-};
-
-function showHomeView() {
-  homeView.classList.remove("hidden")
-  gameView.classList.add("hidden")
-  header.innerHTML = "Choose your game!"
-  newGameButton.classList.add("hidden")
+    <img src="./assets/` + game.player.choice + `.png">
+    <img src="./assets/` + game.computer.choice + `.png">`;
 };
 
 function resetGame() {

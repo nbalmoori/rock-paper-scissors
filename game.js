@@ -11,53 +11,31 @@ class Game {
 
   winGame(winner){
     this[winner].wins += 1;
-    // return `${this[winner].token} ${this[winner].name} won this round! ${this[winner].token}`
+    // return(`${this[winner].token} ${this[winner].name} won this round! ${this[winner].token}`)
   }
 
-//could I make this more concise?
-  playGame(difficulty){
-    this.computer.takeTurn(this.icons[difficulty]);
+//Could I make this more concise by returning in the winGame function? it shows up undefined with the above commented out code
+  determineWinner(){
     if (this.player.choice === this.computer.choice) {
-      this.draws += 1;
       return "It's a Draw!";
     }
-    else if (this.player.choice === "rock" && this.computer.choice === "scissors") {
+    else if (this.player.choice === "rock" && (this.computer.choice === "scissors" || this.computer.choice === "lizard")) {
       this.winGame("player");
       return `${this.player.token} Human won this round!`;
     }
-    else if (this.player.choice === "rock" && this.computer.choice === "lizard") {
+    else if (this.player.choice === "paper" && (this.computer.choice === "rock" || this.computer.choice === "alien")) {
       this.winGame("player");
       return `${this.player.token} Human won this round!`;
     }
-    else if (this.player.choice === "paper" && this.computer.choice === "rock") {
+    else if (this.player.choice === "scissors" && (this.computer.choice === "paper" || this.computer.choice === "lizard")) {
       this.winGame("player");
       return `${this.player.token} Human won this round!`;
     }
-    else if (this.player.choice === "paper" && this.computer.choice === "alien") {
+    else if (this.player.choice === "lizard" && (this.computer.choice === "paper" || this.computer.choice === "alien")){
       this.winGame("player");
       return `${this.player.token} Human won this round!`;
     }
-    else if (this.player.choice === "scissors" && this.computer.choice === "paper") {
-      this.winGame("player");
-      return `${this.player.token} Human won this round!`;
-    }
-    else if (this.player.choice === "scissors" && this.computer.choice === "lizard") {
-      this.winGame("player");
-      return `${this.player.token} Human won this round!`;
-    }
-    else if (this.player.choice === "lizard" && this.computer.choice === "paper"){
-      this.winGame("player");
-      return `${this.player.token} Human won this round!`;
-    }
-    else if (this.player.choice === "lizard" && this.computer.choice === "alien"){
-      this.winGame("player");
-      return `${this.player.token} Human won this round!`;
-    }
-    else if (this.player.choice === "alien" && this.computer.choice === "scissors") {
-      this.winGame("player");
-      return `${this.player.token} Human won this round!`;
-    }
-    else if (this.player.choice === "alien" && this.computer.choice === "rock") {
+    else if (this.player.choice === "alien" && (this.computer.choice === "scissors" || this.computer.choice === "rock")) {
       this.winGame("player");
       return `${this.player.token} Human won this round!`;
     } else {
