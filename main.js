@@ -8,6 +8,7 @@ var gameView = document.querySelector(".game-view");
 var header = document.querySelector("h2");
 var playerWinCount = document.querySelector(".player-win-count");
 var computerWinCount = document.querySelector(".computer-win-count");
+var newGameButton = document.querySelector("button")
 
 var game = new Game();
 
@@ -17,17 +18,15 @@ var logMe = function() {
 
 // EVENT LISTENERS
 
-//could refactor this into one formula?
+//could refactor the first two into one formula?
 classicOption.addEventListener("click", showClassicGame);
 difficultOption.addEventListener("click", showDifficultGame);
-
+newGameButton.addEventListener("click", showHomeView)
 gameView.addEventListener("click", function(event) {
   playerSelectIcon(event)
 });
 
-
 // FUNCTIONS
-
 
 //could refactor showClassicGame and showDifficultGame into one formula?
 function showClassicGame() {
@@ -55,10 +54,10 @@ function displayGameIcons(array) {
   }
 };
 
-
 function playerSelectIcon(event) {
   var replay = function() {
     header.innerHTML = "Choose your fighter!"
+    newGameButton.classList.remove("hidden")
     displayGameIcons(game.icons[game.selection])
   }
   if (event.target.getAttribute('class') === "game-icons") {
@@ -82,7 +81,8 @@ function displayGameResults() {
     <img src="./assets/` + game.computer.choice + `.png" class="game-result">`;
 };
 
-function replayGame() {
-  header.innerHTML = "Choose your fighter!"
-  // displayGameIcons(array)
-}
+function showHomeView() {
+  homeView.classList.remove("hidden")
+  gameView.classList.add("hidden")
+  newGameButton.classList.add("hidden")
+};

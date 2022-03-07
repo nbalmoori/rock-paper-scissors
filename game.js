@@ -12,67 +12,54 @@ class Game {
     this[winner].wins += 1;
   }
 
+//could I make this more concise?
   playGame(difficulty){
     this.computer.takeTurn(this.icons[difficulty]);
     if (this.player.choice === this.computer.choice) {
-      console.log(`this is a tie`)
       return "It's a Draw!";
     }
     else if (this.player.choice === "rock" && this.computer.choice === "scissors") {
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "rock" && this.computer.choice === "lizard") {
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "paper" && this.computer.choice === "rock") {
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "paper" && this.computer.choice === "alien") {
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "scissors" && this.computer.choice === "paper") {
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "scissors" && this.computer.choice === "lizard") {
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "lizard" && this.computer.choice === "paper"){
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "lizard" && this.computer.choice === "alien"){
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "alien" && this.computer.choice === "scissors") {
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     }
     else if (this.player.choice === "alien" && this.computer.choice === "rock") {
-      console.log('winner is player');
       this.winGame("player");
       return "Player won this round!";
     } else {
       this.winGame("computer");
-      console.log("winner is computer")
       return "Computer won this round!";
     }
-    console.log(this.player.choice);
-    console.log(this.computer.choice);
   }
 };
