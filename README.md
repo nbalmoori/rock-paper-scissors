@@ -1,6 +1,6 @@
-#Rock - Paper - Scissors
+# Rock - Paper - Scissors
 
-#Overview
+## Overview
 Are you in a nostalgic mood to play a childhood game, but don't have anyone to play with? This application allows users to play an easy or difficult version of the classic game "Rock-Paper-Scissors" against a computer opponent.
 
 This application was created by Nikki Balmoori in her sixth week of attending Turing School of Software & Design for her Mod 1 final solo project. The spec for this project can be found [here](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo.html).
@@ -10,7 +10,7 @@ This application was created by Nikki Balmoori in her sixth week of attending Tu
 - HTML
 - CSS
 
-#How To Use Rock-Paper-Scissors
+# How To Use Rock-Paper-Scissors
 Once the application is accessed, users have the option to pick from either a classic version of rock-paper-scissors or a difficult version of rock-paper-scissors-lizard-alien.
 
 After a version is chosen, the player can start the game by clicking on the image they want to play.
