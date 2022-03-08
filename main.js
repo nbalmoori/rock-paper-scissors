@@ -13,12 +13,6 @@ var newGameButton = document.querySelector("button");
 
 // EVENT LISTENERS
 
-//Could I refactor the first two into one event listener?
-
-// homeView.addEventListener("click", function(event) {
-//   showGame(event);
-// })
-
 classicOption.addEventListener('click', showClassicGame);
 difficultOption.addEventListener('click', showDifficultGame);
 newGameButton.addEventListener('click', showHomeView);
@@ -30,22 +24,6 @@ gameView.addEventListener('click', function(event) {
 });
 
 // FUNCTIONS
-
-//Could I refactor showClassicGame and showDifficultGame into one function?
-//Below doesn't work if you click in the middle of the box
-
-// function showGame() {
-//   if (event.target.getAttribute('class') === "classic-option") {
-//     game.selection = "classic";
-//     hideHomeView();
-//     displayGameIcons(game.icons.classic);
-//   }
-//   if (event.target.getAttribute('class') === "difficult-option") {
-//     game.selection = "difficult";
-//     hideHomeView();
-//     displayGameIcons(game.icons.difficult);
-//   }
-// }
 
 function showClassicGame() {
   game.selection = 'classic';
