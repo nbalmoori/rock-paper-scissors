@@ -110,3 +110,8 @@ button:hover,
 .hidden {
   display: none;
 }
+
+.spin {
+  transition-duration: 1s;
+  transform: rotate(360deg);
+}
