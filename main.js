@@ -24,7 +24,9 @@ difficultOption.addEventListener('click', showDifficultGame);
 newGameButton.addEventListener('click', showHomeView);
 title.addEventListener('click', resetGame);
 gameView.addEventListener('click', function(event) {
+  spinIcon(event)
   playerSelectIcon(event)
+  replayGame(event)
 });
 
 // FUNCTIONS
@@ -77,21 +79,34 @@ function displayGameIcons(array) {
   };
 };
 
+function spinIcon(event) {
+  if (event.target.getAttribute('class') === "game-icons") {
+    event.target.classList.add("spin")
+  }
+};
+
 function playerSelectIcon(event) {
+  var selectIcon = function() {
+    game.player.takeTurn(game.icons[game.selection], event.target.getAttribute('id'));
+    game.computer.takeTurn(game.icons[game.selection]);
+    header.innerHTML = (game.determineWinner());
+    displayWinCount();
+    displayGameResults();
+  };
+
+  if (event.target.getAttribute('class') === "game-icons spin") {
+    setTimeout(selectIcon, 1000)
+  }
+};
+
+function replayGame(event) {
   var replay = function() {
     header.innerHTML = 'Choose your fighter!';
     newGameButton.classList.remove("hidden");
     displayGameIcons(game.icons[game.selection]);
   };
 
-  if (event.target.getAttribute('class') === "game-icons") {
-    game.player.takeTurn(game.icons[game.selection], event.target.getAttribute('id'));
-    game.computer.takeTurn(game.icons[game.selection]);
-    header.innerHTML = (game.determineWinner());
-    displayWinCount();
-    displayGameResults();
-    setTimeout(replay, 2000);
-  };
+  setTimeout(replay, 3000);
 };
 
 function displayWinCount() {
