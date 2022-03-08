@@ -75,7 +75,7 @@ function showHomeView() {
 function displayGameIcons(array) {
   gameView.innerHTML = '';
   for (var i = 0; i < array.length; i++) {
-    gameView.innerHTML += `<img src="./assets/` + array[i] + `.png" class="game-icons"` + `id ="` + array[i] + `">`;
+    gameView.innerHTML += `<img src="./assets/` + array[i] + `.png " alt="` + array[i] + `" class="game-icons"` + `id ="` + array[i] + `">`;
   };
 };
 
